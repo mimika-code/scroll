@@ -16,7 +16,7 @@ if response.status_code != 200:
     print("Error:", response.text)
 else:
     data = response.json()
-    print("Received data:", data)  # Wyświetlenie pełnej odpowiedzi
+    print("Received data:", data)
 
     results = data.get('result', {}).get('rows', [])
     output = {}
@@ -25,12 +25,12 @@ else:
         minted_percentage = result['share']
         output[badge_name] = minted_percentage
 
-    print("Output data to be written to data.json:", output)  # Wyświetlenie danych przed zapisaniem
+    print("Output data to be written to data.json:", output)
 
     with open('data.json', 'w') as f:
         json.dump(output, f)
 
-    # Odczytanie zawartości pliku data.json
+  
     with open('data.json', 'r') as f:
         content = f.read()
         print("Content of data.json:", content)
