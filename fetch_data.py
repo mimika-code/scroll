@@ -1,9 +1,5 @@
 import requests
 import json
-import logging
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 API_KEY = 'JHFa6EPnJSGkGPoHs9bxPky5dXIAAz36'
 QUERY_ID = '3930803'
@@ -13,42 +9,28 @@ headers = {
     'x-dune-api-key': API_KEY
 }
 
-try:
-    response = requests.get(url, headers=headers)
-    response.raise_for_status()  # Raise an error for bad status codes
-except requests.exceptions.RequestException as e:
-    logging.error(f"Request failed: {e}")
-    exit(1)
+response = requests.get(url, headers=headers)
 
-logging.info(f"Status code: {response.status_code}")
-
-data = response.json()
-results = data.get('result', {}).get('rows', [])
-
-if not results:
-    logging.warning("No data found in the query results.")
-    output = {}
+print("Status code:", response.status_code)
+if response.status_code != 200:
+    print("Error:", response.text)
 else:
+    data = response.json()
+    print("Received data:", data)  # Wyświetlenie pełnej odpowiedzi
+
+    results = data.get('result', {}).get('rows', [])
     output = {}
     for result in results:
-        badge_name = result.get('badge_name', 'Unknown Badge')
-        minted_percentage = result.get('share', 0)
+        badge_name = result['badge_name']
+        minted_percentage = result['share']
         output[badge_name] = minted_percentage
 
-logging.info(f"Output data to be written to data.json: {output}")
+    print("Output data to be written to data.json:", output)  # Wyświetlenie danych przed zapisaniem
 
-try:
     with open('data.json', 'w') as f:
-        json.dump(output, f, indent=4)
-    logging.info("Data successfully written to data.json")
-except IOError as e:
-    logging.error(f"Failed to write to data.json: {e}")
-    exit(1)
+        json.dump(output, f)
 
-try:
+    # Odczytanie zawartości pliku data.json
     with open('data.json', 'r') as f:
         content = f.read()
-    logging.info(f"Content of data.json: {content}")
-except IOError as e:
-    logging.error(f"Failed to read from data.json: {e}")
-    exit(1)
+        print("Content of data.json:", content)
