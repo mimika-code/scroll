@@ -457,15 +457,13 @@ body {
    </div>
         </div>
     </div>
-    <script>
-async function updateData() {
-    const response = await fetch('data.json');
-    const data = await response.json();
-    const genesisNftData = data.results.find(item => item.badge_name === 'Genesis Nft');
-    if (genesisNftData) {
-        document.getElementById('scroll-origin-info').innerText = `Minted: ${genesisNftData.minted_percentage}%`;
-    }
-}
-updateData();
+<script>
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('scroll-origin-info').textContent = `Minted: ${data['Genesis Nft']}%`;
+        })
+        .catch(error => console.error('Error fetching data:', error));
 </script>
+
 </body>
