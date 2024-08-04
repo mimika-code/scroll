@@ -492,35 +492,36 @@ body {
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
-document.getElementById('scroll-origin-info').textContent = `Minted: ${data['Genesis Nft']}%`;
-document.getElementById('xenobunny-scroll-overlord-info').textContent = 'No data on Dune';
-document.getElementById('xenobunny-scroll-explorer-info').textContent = `Minted: ${data['Scroll Explorer']}%`;
-document.getElementById('smilecobra-genesis-info').textContent = `Minted: ${data['Smilecobra Genesis']}%`;
-document.getElementById('symbiosis-pro-swapper-info').textContent = `Minted: ${data['Symbiosis Pro Swapper']}%`;
-document.getElementById('scroll-retro-bridger-info').textContent = `Minted: ${data['RetroBridger']}%`;
-document.getElementById('trusta-humanity-info').textContent = `Minted: ${data['Trusta Humanity']}%`;
-document.getElementById('omnihub-info').textContent = `Minted: ${data['OmniHub']}%`;
-document.getElementById('booster-info').textContent = `Minted: ${data['Booster']}%`;
-document.getElementById('xhs-holder-info').textContent = `Minted: ${data['XHS Holder']}%`;
-document.getElementById('cross-chain-beginner-info').textContent = `Minted: ${data['Cross-chain Beginner']}%`;
-document.getElementById('cross-chain-swapper-info').textContent = `Minted: ${data['Cross-chain Swapper']}%`;
-document.getElementById('cross-chain-whale-info').textContent = `Minted: ${data['Cross-chain Whale']}%`;
-document.getElementById('trusta-reputation-info').textContent = `Minted: ${data['Trusta Reputation']}%`;
-document.getElementById('cross-chain-professional-info').textContent = `Minted: ${data['Cross-chain Professional']}%`;
-document.getElementById('zns-info').textContent = `Minted: ${data['ZNS']}%`;
-document.getElementById('gitcoin-passport-info').textContent = `Minted: ${data['Gitcoin Passport']}%`;
-document.getElementById('scroller-info').textContent = `Minted: ${data['Scroller']}%`;
-document.getElementById('pencil-p-info').textContent = `Minted: ${data['Pencil P']}%`;
-document.getElementById('pencil-s-info').textContent = `Minted: ${data['Pencil S']}%`;
-document.getElementById('scrolly-info').textContent = `Minted: ${data['Scrolly']}%`;
-document.getElementById('zebra-info').textContent = `Minted: ${data['Zebra']}%`;
-document.getElementById('ambient-yeet-info').textContent = `Minted: ${data['Ambient Yeet']}%`;
-document.getElementById('ambient-filloor-info').textContent = `Minted: ${data['Ambient Filloor']}%`;
-document.getElementById('ambient-providoor-info').textContent = `Minted: ${data['Ambient Providoor']}%`;
-document.getElementById('ambient-swapoor-info').textContent = `Minted: ${data['Ambient Swapooor']}%`;
-document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Ethereum Year']}%`;
-
+                document.getElementById('scroll-origin-info').textContent = `Minted: ${data['Genesis Nft']}% wallets minted this badge`;
+                document.getElementById('xenobunny-scroll-overlord-info').textContent = 'No data on Dune';
+                document.getElementById('xenobunny-scroll-explorer-info').textContent = `Minted: ${data['Scroll Explorer']}% wallets minted this badge`;
+                document.getElementById('smilecobra-genesis-info').textContent = `Minted: ${data['Smilecobra Genesis']}% wallets minted this badge`;
+                document.getElementById('symbiosis-pro-swapper-info').textContent = `Minted: ${data['Symbiosis Pro Swapper']}% wallets minted this badge`;
+                document.getElementById('scroll-retro-bridger-info').textContent = `Minted: ${data['RetroBridger']}% wallets minted this badge`;
+                document.getElementById('trusta-humanity-info').textContent = `Minted: ${data['Trusta Humanity']}% wallets minted this badge`;
+                document.getElementById('omnihub-info').textContent = `Minted: ${data['OmniHub']}% wallets minted this badge`;
+                document.getElementById('booster-info').textContent = `Minted: ${data['Booster']}% wallets minted this badge`;
+                document.getElementById('xhs-holder-info').textContent = `Minted: ${data['XHS Holder']}% wallets minted this badge`;
+                document.getElementById('cross-chain-beginner-info').textContent = `Minted: ${data['Cross-chain Beginner']}% wallets minted this badge`;
+                document.getElementById('cross-chain-swapper-info').textContent = `Minted: ${data['Cross-chain Swapper']}% wallets minted this badge`;
+                document.getElementById('cross-chain-whale-info').textContent = `Minted: ${data['Cross-chain Whale']}% wallets minted this badge`;
+                document.getElementById('trusta-reputation-info').textContent = `Minted: ${data['Trusta Reputation']}% wallets minted this badge`;
+                document.getElementById('cross-chain-professional-info').textContent = `Minted: ${data['Cross-chain Professional']}% wallets minted this badge`;
+                document.getElementById('zns-info').textContent = `Minted: ${data['ZNS']}% wallets minted this badge`;
+                document.getElementById('gitcoin-passport-info').textContent = `Minted: ${data['Gitcoin Passport']}% wallets minted this badge`;
+                document.getElementById('scroller-info').textContent = `Minted: ${data['Scroller']}% wallets minted this badge`;
+                document.getElementById('pencil-p-info').textContent = `Minted: ${data['Pencil P']}% wallets minted this badge`;
+                document.getElementById('pencil-s-info').textContent = `Minted: ${data['Pencil S']}% wallets minted this badge`;
+                document.getElementById('scrolly-info').textContent = `Minted: ${data['Scrolly']}% wallets minted this badge`;
+                document.getElementById('zebra-info').textContent = `Minted: ${data['Zebra']}% wallets minted this badge`;
+                document.getElementById('ambient-yeet-info').textContent = `Minted: ${data['Ambient Yeet']}% wallets minted this badge`;
+                document.getElementById('ambient-filloor-info').textContent = `Minted: ${data['Ambient Filloor']}% wallets minted this badge`;
+                document.getElementById('ambient-providoor-info').textContent = `Minted: ${data['Ambient Providoor']}% wallets minted this badge`;
+                document.getElementById('ambient-swapoor-info').textContent = `Minted: ${data['Ambient Swapooor']}% wallets minted this badge`;
+                document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Ethereum Year']}% wallets minted this badge`;
             })
-        .catch(error => console.error('Error fetching data:', error));
+            .catch(error => console.error('Error fetching data:', error));
+    }
+    fetchDataAndUpdate();
 </script>
 </body>
