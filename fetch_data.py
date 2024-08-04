@@ -12,7 +12,6 @@ headers = {
 response = requests.get(url, headers=headers)
 data = response.json()
 
-
 results = data.get('data', {}).get('result', [])
 output = {}
 for result in results:
