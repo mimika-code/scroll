@@ -10,14 +10,27 @@ headers = {
 }
 
 response = requests.get(url, headers=headers)
-data = response.json()
 
-results = data.get('data', {}).get('result', [])
-output = {}
-for result in results:
-    badge_name = result['badge_name']
-    minted_percentage = result['minted_percentage']
-    output[badge_name] = minted_percentage
+print("Status code:", response.status_code)
+if response.status_code != 200:
+    print("Error:", response.text)
+else:
+    data = response.json()
+    print("Received data:", data)  # Wyświetlenie pełnej odpowiedzi
 
-with open('data.json', 'w') as f:
-    json.dump(output, f)
+    results = data.get('result', {}).get('rows', [])
+    output = {}
+    for result in results:
+        badge_name = result['badge_name']
+        minted_percentage = result['share']
+        output[badge_name] = minted_percentage
+
+    print("Output data to be written to data.json:", output)  # Wyświetlenie danych przed zapisaniem
+
+    with open('data.json', 'w') as f:
+        json.dump(output, f)
+
+    # Odczytanie zawartości pliku data.json
+    with open('data.json', 'r') as f:
+        content = f.read()
+        print("Content of data.json:", content)
