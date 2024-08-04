@@ -29,11 +29,11 @@ jobs:
         python fetch_data.py
 
     - name: Commit and push changes
+      env:
+        ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git add data.json
         git commit -m 'Update data'
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git push https://x-access-token:${{ secrets.ACTIONS_TOKEN }}@github.com/mimika-code/scroll.git
