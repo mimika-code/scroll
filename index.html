@@ -500,7 +500,7 @@ body {
             .then(response => response.json())
             .then(data => {
 document.getElementById('scroll-origin-info').textContent = `Minted: ${data['Genesis Nft']}%`;
-document.getElementById('xenobunny-scroll-overlord-info').textContent = 'Minted: no data on dune';
+document.getElementById('xenobunny-scroll-overlord-info').textContent = `Minted: ${data['Scroll Overlord']}%`;
 document.getElementById('xenobunny-scroll-explorer-info').textContent = `Minted: ${data['Scroll Explorer']}%`;
 document.getElementById('smilecobra-genesis-info').textContent = `Minted: ${data['Smilecobra Genesis']}%`;
 document.getElementById('symbiosis-pro-swapper-info').textContent = `Minted: ${data['Symbiosis Pro Swapper']}%`;
