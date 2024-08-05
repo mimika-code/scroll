@@ -181,9 +181,20 @@ body {
     </div>
 </div>
         <div class="badge-item">
-            <img src="https://raw.githubusercontent.com/mimika-code/Canvas/main/Badges/2.gif" alt="Badge 2">
+            <img src="https://raw.githubusercontent.com/mimika-code/Canvas/main/Badges/28.png" alt="Badge 2">
             <div class="badge-description">
                 <span class="new-badge">NEW!</span> <span class="badge-date">Aug 02, 2024</span><br>
+                <div class="mint-info" id="scroll-origin-info"></div>
+                <p><strong>ZNS SCROLL DOMAIN MASTER</strong>
+                Go <a href="https://zns.bio/" target="_blank">HERE</a> and mint 5 domains. If you have already minted 1 domain to qualify for the 'ZNS DOMAIN BADGE' (you can find it on this list), you can now mint 4 more domains (you will have 5 in total)<br>
+                _______________________________________________<br>
+                >>> You can mint this badge <a href="https://scroll.io/canvas/badge-contract/0x55B867a955e4384bcAc03eF7F2E492F68016C152" target="_blank">HERE</a>
+                </p>
+            </div>
+        </div>
+        <div class="badge-item">
+            <img src="https://raw.githubusercontent.com/mimika-code/Canvas/main/Badges/2.gif" alt="Badge 2">
+            <div class="badge-description">
                 <div class="mint-info" id="scroll-origin-info"></div>
                 <p><strong>SCROLL ORIGIN</strong>
                 This badge is available for individuals who, in 2023 (before December 9, 2023, 10:59 PM GMT), deployed the contract and minted the Scroll Origin NFT. This NFT is non-transferable and cannot be purchased (it's soulbound). If you are eligible, you will see the option to mint this badge in your Scroll Canvas dashboard.<br>
@@ -195,7 +206,6 @@ body {
 <div class="badge-item">
             <img src="https://raw.githubusercontent.com/mimika-code/Canvas/main/Badges/27b.png" alt="Badge 27">
             <div class="badge-description">
-                <span class="new-badge">NEW!</span> <span class="badge-date">Aug 02, 2024</span><br>
                 <div class="mint-info" id="xenobunny-scroll-overlord-info"></div>
                 <p><strong>XENOBUNNY SCROLL OVERLORD</strong>
                 Participated in at least one Land War season on scroll. New season on Scroll will begin in about 2 weeks (Aug 15 - 18) Follow them <a href="https://x.com/XenobunnyX" target="_blank">HERE</a> for updates. Learn how to play in playbook <a href="https://xenobunnygame.gitbook.io/xenobunny-playbook" target="_blank">HERE</a><br>
@@ -207,7 +217,6 @@ body {
             <div class="badge-item">
             <img src="https://raw.githubusercontent.com/mimika-code/Canvas/main/Badges/26b.png" alt="Badge 26">
             <div class="badge-description">
-                <span class="new-badge">NEW!</span> <span class="badge-date">Aug 02, 2024</span><br>
                 <div class="mint-info" id="xenobunny-scroll-explorer-info"></div>
                 <p><strong>XENOBUNNY SCROLL EXPLORER</strong>
                 Go <a href="https://www.xenobunny.xyz/" target="_blank">HERE</a> > Click "Play Now" > "Black Market" > Connect on scroll Chain > buy Land NFT under "Land header" (or you can obtain land NFT by playing their games). Please wait patiently until you are eligible to mint Scroll Canvas, it takes some time.<br>
@@ -219,7 +228,6 @@ body {
             <div class="badge-item">
             <img src="https://raw.githubusercontent.com/mimika-code/Canvas/main/Badges/25.png" alt="Badge 25">
             <div class="badge-description">
-                <span class="new-badge">NEW!</span> <span class="badge-date">Aug 02, 2024</span><br>
                 <div class="mint-info" id="smilecobra-genesis-info"></div>
                 <p><strong>SMILECOBRA GENESIS BADGE</strong>
                 Go <a href="https://www.smilecobra.io/smc" target="_blank">HERE</a> > Click on blue fishing rog > then fish > "X" Icon and follow Smile Cobra. Click on bag icon > rog icon > replace the rog > again click on blue fishing rog > fish. Click on bag icon -> fish icon -> NFTLock -> write "2" -> click "Confirm". Click on "Task" icon > green "Visit" button. Mint NFT.<br>
@@ -231,7 +239,6 @@ body {
             <div class="badge-item">
             <img src="https://raw.githubusercontent.com/mimika-code/Canvas/main/Badges/24.png" alt="Badge 24">
             <div class="badge-description">
-                <span class="new-badge">NEW!</span> <span class="badge-date">Aug 02, 2024</span><br>
                 <div class="mint-info" id="symbiosis-pro-swapper-info"></div>
                 <p><strong>SYMBIOSIS PRO SWAPPER</strong>
                 <a href="https://app.symbiosis.finance/swap" target="_blank">SWAP</a> minimum of $100 on-chain on Scroll (E.g. ETH to USDC, wrsETH to weETH etc.)<br>
@@ -492,6 +499,7 @@ body {
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
+document.getElementById('zns-scroll-domain-master-info').textContent = `Minted: ${data['Scroll Domain Master']}%`;
 document.getElementById('scroll-origin-info').textContent = `Minted: ${data['Genesis Nft']}%`;
 document.getElementById('xenobunny-scroll-overlord-info').textContent = 'No data on Dune';
 document.getElementById('xenobunny-scroll-explorer-info').textContent = `Minted: ${data['Scroll Explorer']}%`;
