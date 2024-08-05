@@ -37,3 +37,4 @@ jobs:
         git add data.json
         git commit -m 'Update data'
         git push https://x-access-token:${{ secrets.ACTIONS_TOKEN }}@github.com/mimika-code/scroll.git
+        
