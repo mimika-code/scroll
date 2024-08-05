@@ -8,14 +8,18 @@ dune = DuneClient(API_KEY)
 query_result = dune.get_latest_result(QUERY_ID)
 
 if query_result:
-    results = query_result['result']['rows']
+    results = query_result.result.get_rows()  # Fixed results fetching
+
+    # Creating a dictionary from the results
     output = {result['badge_name']: result['share'] for result in results}
-    
+
     print("Output data to be written to data.json:", output)
 
+    # Writing results to data.json
     with open('data.json', 'w') as f:
         json.dump(output, f)
 
+    # Reading and printing the contents of data.json
     with open('data.json', 'r') as f:
         content = f.read()
         print("Content of data.json:", content)
