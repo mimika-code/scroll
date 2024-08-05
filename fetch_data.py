@@ -8,7 +8,7 @@ dune = DuneClient(API_KEY)
 query_result = dune.get_latest_result(QUERY_ID)
 
 if query_result:
-    results = query_result.result.get_rows()  # Fixed results fetching
+    results = query_result.result.rows  # Accessing rows directly
 
     # Creating a dictionary from the results
     output = {result['badge_name']: result['share'] for result in results}
