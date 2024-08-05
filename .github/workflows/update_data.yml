@@ -2,7 +2,7 @@ name: Update Data
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Runs every 3 hours
+    - cron: '0 */3 * * *'
   push:
     branches:
       - main
@@ -28,10 +28,12 @@ jobs:
       run: |
         python fetch_data.py
 
-    - name: Commit and push changes if there are any
+    - name: Commit and push changes
       env:
         ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git diff --exit-code || (git add data.json && git commit -m 'Update data' && git push https://x-access-token:${{ secrets.ACTIONS_TOKEN }}@github.com/mimika-code/scroll.git)
+        git add data.json
+        git commit -m 'Update data'
+        git push https://x-access-token:${{ secrets.ACTIONS_TOKEN }}@github.com/mimika-code/scroll.git
