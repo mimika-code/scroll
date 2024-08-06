@@ -794,7 +794,7 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
     }
     fetchDataAndUpdate();
 </script>
-    <script>
+<script>
     // Function to update the badge count on the button
     function updateBadgeCount() {
         var badgeItems = document.querySelectorAll('.badge-item');
@@ -809,7 +809,7 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
         var badgeTitles = Array.from(badgeItems).slice(1).map(item => item.innerText); // Exclude the "GENERAL INFORMATION" title
         var newWindow = window.open();
         newWindow.document.write('<html><head><title>Badge List</title>');
-        newWindow.document.write('<style>body { font-family: Arial, sans-serif; }</style></head><body>');
+        newWindow.document.write('<style>body { font-family: Arial, sans-serif; margin: 20px; }</style></head><body>');
         newWindow.document.write('<h1>List of Badge Titles</h1><ol>');
         badgeTitles.forEach((title, index) => {
             newWindow.document.write('<li>' + title + '</li>');
@@ -824,4 +824,5 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
     // Call function to update the badge count on the button after the page loads
     document.addEventListener('DOMContentLoaded', updateBadgeCount);
 </script>
+
 </body>
