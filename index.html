@@ -809,7 +809,15 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
         var badgeTitles = Array.from(badgeItems).slice(1).map(item => item.innerText); // Exclude the "GENERAL INFORMATION" title
         var newWindow = window.open();
         newWindow.document.write('<html><head><title>Badge List</title>');
-        newWindow.document.write('<style>body { font-family: Arial, sans-serif; margin: 20px; }</style></head><body>');
+        newWindow.document.write('<style>body { font-family: Arial, sans-serif; margin: 20px; text-align: left; }');
+        newWindow.document.write('h1 { font-size: 24px; text-transform: uppercase; text-align: left; }');
+        newWindow.document.write('ol { padding-left: 20px; }');
+        newWindow.document.write('li { font-size: 18px; margin-bottom: 10px; }');
+        newWindow.document.write('@media (max-width: 768px) {');
+        newWindow.document.write('body { margin: 10px; }');
+        newWindow.document.write('h1 { font-size: 20px; }');
+        newWindow.document.write('li { font-size: 16px; }');
+        newWindow.document.write('}</style></head><body>');
         newWindow.document.write('<h1>List of Badge Titles</h1><ol>');
         badgeTitles.forEach((title, index) => {
             newWindow.document.write('<li>' + title + '</li>');
