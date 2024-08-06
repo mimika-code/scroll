@@ -809,16 +809,18 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
         var badgeTitles = Array.from(badgeItems).slice(1).map(item => item.innerText); // Exclude the "GENERAL INFORMATION" title
         var newWindow = window.open();
         newWindow.document.write('<html><head><title>Badge List</title>');
-        newWindow.document.write('<style>body { font-family: Arial, sans-serif; margin: 20px; text-align: left; padding: 20px; box-sizing: border-box; }');
+        newWindow.document.write('<style>');
+        newWindow.document.write('body { font-family: Arial, sans-serif; margin: 20px; text-align: left; padding: 20px; box-sizing: border-box; }');
         newWindow.document.write('h1 { font-size: 24px; text-transform: uppercase; text-align: left; margin-bottom: 20px; }');
         newWindow.document.write('ol { padding-left: 20px; }');
         newWindow.document.write('li { font-size: 18px; margin-bottom: 10px; }');
         newWindow.document.write('@media (max-width: 768px) {');
-        newWindow.document.write('body { margin: 10px; padding: 25px; box-sizing: border-box; }');
-        newWindow.document.write('h1 { font-size: 20px; margin-bottom: 25px; }');
+        newWindow.document.write('body { margin: 20px; padding: 20px; box-sizing: border-box; }');
+        newWindow.document.write('h1 { font-size: 20px; margin-bottom: 15px; }');
         newWindow.document.write('li { font-size: 16px; margin-bottom: 8px; }');
-        newWindow.document.write('}</style></head><body>');
-        newWindow.document.write('<h1>BADGES</h1><ol>');
+        newWindow.document.write('}');
+        newWindow.document.write('</style></head><body>');
+        newWindow.document.write('<h1>LIST OF BADGE TITLES</h1><ol>');
         badgeTitles.forEach((title, index) => {
             newWindow.document.write('<li>' + title + '</li>');
         });
@@ -832,6 +834,5 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
     // Call function to update the badge count on the button after the page loads
     document.addEventListener('DOMContentLoaded', updateBadgeCount);
 </script>
-
 
 </body>
