@@ -189,7 +189,40 @@ body {
     color: black;
     text-decoration: none;
 }
+.custom-generate-button {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+    margin-top: 6px;
+    text-align: left;
+    text-decoration: none;
+    transition: background-color 0.01s, color 0.01s, border-color 0.01s;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
 
+
+.custom-generate-button:link, .custom-generate-button:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.custom-generate-button:hover {
+    background-color: #00ffa4;
+    border: 1px solid #00ffa4;
+    color: black;
+    text-decoration: none;
+}
+
+.custom-generate-button:active {
+    background-color: #00ffa4;
+    color: black;
+    text-decoration: none;
+}
 
 
 @media (max-width: 768px) {
@@ -225,6 +258,7 @@ body {
             <a href="https://scroll.io/bridge" target="_blank">OFFICIAL BRIDGE</a> &#9679;
             <a href="https://www.scrollstats.com/users/week" target="_blank">SCROLL STATS</a>
         </p>
+        <a href="#" id="generate-button" class="custom-generate-button">NR OF BADGES: 0 - CLICK TO SEE RAW LIST</a>
     </div>
 </div>
 <div class="badge-item">
@@ -759,5 +793,35 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
             .catch(error => console.error('Error fetching data:', error));
     }
     fetchDataAndUpdate();
+</script>
+    <script>
+    // Function to update the badge count on the button
+    function updateBadgeCount() {
+        var badgeItems = document.querySelectorAll('.badge-item');
+        var badgeCount = badgeItems.length - 1; // Exclude the "GENERAL INFORMATION" item
+        var button = document.getElementById('generate-button');
+        button.textContent = `NR OF BADGES: ${badgeCount} - CLICK TO SEE RAW LIST`;
+    }
+
+    // Function to generate the badge list in a new tab
+    function generateBadgeList() {
+        var badgeItems = document.querySelectorAll('.badge-item p strong');
+        var badgeTitles = Array.from(badgeItems).slice(1).map(item => item.innerText); // Exclude the "GENERAL INFORMATION" title
+        var newWindow = window.open();
+        newWindow.document.write('<html><head><title>Badge List</title>');
+        newWindow.document.write('<style>body { font-family: Arial, sans-serif; }</style></head><body>');
+        newWindow.document.write('<h1>List of Badge Titles</h1><ol>');
+        badgeTitles.forEach((title, index) => {
+            newWindow.document.write('<li>' + title + '</li>');
+        });
+        newWindow.document.write('</ol></body></html>');
+        newWindow.document.close();
+    }
+
+    // Add event listener to the button
+    document.getElementById('generate-button').addEventListener('click', generateBadgeList);
+
+    // Call function to update the badge count on the button after the page loads
+    document.addEventListener('DOMContentLoaded', updateBadgeCount);
 </script>
 </body>
