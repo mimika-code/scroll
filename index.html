@@ -810,15 +810,15 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
         var newWindow = window.open();
         newWindow.document.write('<html><head><title>Badge List</title>');
         newWindow.document.write('<style>body { font-family: Arial, sans-serif; margin: 20px; text-align: left; }');
-        newWindow.document.write('h1 { font-size: 24px; text-transform: uppercase; text-align: left; }');
-        newWindow.document.write('ol { padding-left: 40px; }');
-        newWindow.document.write('li { font-size: 18px; margin-bottom: 20px; }');
+        newWindow.document.write('h1 { font-size: 24px; text-transform: uppercase; text-align: left; margin-bottom: 20px; }');
+        newWindow.document.write('ol { padding-left: 20px; }');
+        newWindow.document.write('li { font-size: 18px; margin-bottom: 10px; }');
         newWindow.document.write('@media (max-width: 768px) {');
-        newWindow.document.write('body { margin: 20px; }');
-        newWindow.document.write('h1 { font-size: 20px; }');
-        newWindow.document.write('li { font-size: 14px; }');
+        newWindow.document.write('body { margin: 10px; padding: 10px; }');
+        newWindow.document.write('h1 { font-size: 20px; margin-bottom: 15px; }');
+        newWindow.document.write('li { font-size: 16px; margin-bottom: 8px; }');
         newWindow.document.write('}</style></head><body>');
-        newWindow.document.write('<h1>BADGES LIST:</h1><ol>');
+        newWindow.document.write('<h1>LIST OF BADGE TITLES</h1><ol>');
         badgeTitles.forEach((title, index) => {
             newWindow.document.write('<li>' + title + '</li>');
         });
@@ -832,5 +832,6 @@ document.getElementById('ethereum-year-info').textContent = `Minted: ${data['Eth
     // Call function to update the badge count on the button after the page loads
     document.addEventListener('DOMContentLoaded', updateBadgeCount);
 </script>
+
 
 </body>
