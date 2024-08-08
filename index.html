@@ -988,25 +988,27 @@ document.getElementById('new-badge-info-11').textContent = 'No data on Dune';
     function generateBadgeList() {
         var badgeItems = document.querySelectorAll('.badge-item p strong');
         var badgeTitles = Array.from(badgeItems).slice(1).map(item => item.innerText); // Exclude the "GENERAL INFORMATION" title
+        var totalBadges = badgeTitles.length; // Get the total number of badges
         var newWindow = window.open();
         newWindow.document.write('<html><head><title>Badge List</title>');
         newWindow.document.write('<style>');
         newWindow.document.write('body { font-family: Arial, sans-serif; margin: 20px; text-align: left; padding: 20px; box-sizing: border-box; }');
         newWindow.document.write('h1 { font-size: 24px; text-transform: uppercase; text-align: left; margin-bottom: 20px; }');
-        newWindow.document.write('ol { padding-left: 40px; }'); // Adjusted padding for list
-        newWindow.document.write('li { font-size: 18px; margin-bottom: 10px; }');
+        newWindow.document.write('ul { padding-left: 40px; list-style-type: none; counter-reset: item ' + (totalBadges + 1) + '; }'); // Adjusted padding and counter-reset for list
+        newWindow.document.write('li { font-size: 18px; margin-bottom: 10px; counter-increment: item -1; }'); // Counter increment by -1
+        newWindow.document.write('li::before { content: counter(item) ". "; }'); // Use counter for numbering
         newWindow.document.write('@media (max-width: 768px) {');
         newWindow.document.write('body { margin: 20px; padding: 20px; box-sizing: border-box; }');
         newWindow.document.write('h1 { font-size: 20px; margin-bottom: 15px; }');
         newWindow.document.write('li { font-size: 16px; margin-bottom: 8px; }');
-        newWindow.document.write('ol { padding-left: 30px; }'); // Adjusted padding for list on mobile
+        newWindow.document.write('ul { padding-left: 30px; }'); // Adjusted padding for list on mobile
         newWindow.document.write('}');
         newWindow.document.write('</style></head><body>');
-        newWindow.document.write('<h1>LIST OF BADGE TITLES</h1><ol>');
-        badgeTitles.forEach((title, index) => {
+        newWindow.document.write('<h1>LIST OF BADGE TITLES</h1><ul>'); // Change ol to ul
+        badgeTitles.forEach((title) => {
             newWindow.document.write('<li>' + title + '</li>');
         });
-        newWindow.document.write('</ol></body></html>');
+        newWindow.document.write('</ul></body></html>'); // Change ol to ul
         newWindow.document.close();
     }
 
